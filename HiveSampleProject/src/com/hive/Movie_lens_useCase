@@ -1,0 +1,7 @@
+1) List the ratings, and movie names in the reverse order (Movie with maximum rating, will come first in the list)
+
+select distinct(a.rating) , b.movie_name from movie_lens a join movie_details b on (a.movie_id = b.movie_id) order by a.rating desc limit 50;
+
+2) List all user who rated, with the number of ratings per user in increasing order (Users rated minimum number of ratings come first)
+
+select user_id,count(rating) as cnt from movie_lens group by user_id order by cnt;
