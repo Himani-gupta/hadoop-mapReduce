@@ -2,8 +2,10 @@ package com.hadoop.movieLens.secondary.sort;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.io.IntWritable;
@@ -18,7 +20,7 @@ public class ReducerClass extends Reducer<CustomKey, Text, IntWritable, Text> {
 		Iterator<Text> itr = values.iterator();
 		IntWritable movieId = new IntWritable(key.getMovieId());
 		Text users = new Text();
-		List<String> usersList = new ArrayList<String>();
+		Set<String> usersList = new HashSet<String>();
 		while (itr.hasNext()) {
 			usersList.add(key.getRating() +"--"+itr.next().toString());			
 		}

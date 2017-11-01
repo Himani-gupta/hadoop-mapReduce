@@ -21,6 +21,7 @@ public class WebLogMapperClass extends Mapper<LongWritable, Text, WebLogWritable
 	@Override
 	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 		String words[] = value.toString().split("\t");
+		System.out.println("helllllllllllllllllllllllllllllllllllllllllllllllloooooooooooooooooooo");
 		url.set(words[0]);
 		rdate.set(words[1]);
 		rtime.set(words[2]);
